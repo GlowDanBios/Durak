@@ -1,5 +1,5 @@
 class Bot():
-    
+
     def __init__(self):
         pass
 
@@ -27,12 +27,12 @@ class Bot():
         return cards[j]
 
     def attack(self, mycards):
-        return minn(mycards)
+        return self.minn(mycards)
 
     def defend(self, mycards, acard, trump):
         while len(mycards) > 0:
-            if compare(minn(mycards), acard, trump):
-                return minn(mycards)
+            if self.compare(self.minn(mycards), acard, trump):
+                return self.minn(mycards)
             else:
-                mycards.remove(minn(mycards))
+                mycards.remove(self.minn(mycards))
         return False
