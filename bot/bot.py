@@ -12,4 +12,26 @@ def compare(card1, card2, trump):  # card1 пытается побить card2, 
             else:
                 return False
 
-def choose(mycards, trump, trash, numl, ):
+
+def minn(cards):
+    m = cards[0]['value']
+    j = 0
+    for i in range(len(cards)):
+        if cards[i]['value'] < m:
+            m = cards[i]['value']
+            j = i
+    return cards[j]
+
+
+def attack(mycards):
+    return minn(mycards)
+
+
+def defend(mycards, acard, trump):
+    while len(mycards)>0:
+        if compare(minn(mycards), acard, trump):
+            return minn(mycards)
+        else:
+            mycards.remove(minn(mycards))
+    return False
+
